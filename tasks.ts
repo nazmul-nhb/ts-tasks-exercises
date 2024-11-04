@@ -37,3 +37,42 @@ const person: Person = {
 	isMarried: true,
 	friends: null,
 };
+
+// Task #4
+interface Book {
+	title: string;
+	author: string;
+	price: number;
+	publishingYear: Date;
+}
+
+interface Magazine {
+	title: string;
+	publisher: string;
+	price: number;
+	publishingPeriod: number;
+}
+
+type BookOrMagazineOptional = Book | Magazine;
+type BookAndMagazineCommon = Book & Magazine;
+
+// Must have all properties from Book or Magazine --> must satisfy at least one interface
+const bookOrMagazine: BookOrMagazineOptional = {
+	title: "Kaaler Kheya",
+	author: "Habul",
+	price: 500,
+	// publishingYear: new Date(2009),
+	// Optional Properties
+	publisher: "Kaaler Kantho",
+	publishingPeriod: 1,
+};
+
+// Need all the properties
+const bookAndMagazine: BookAndMagazineCommon = {
+	title: "Kaaler Kheya",
+	author: "Babul",
+	price: 5000,
+	publishingYear: new Date(2010),
+    publisher: "Kaaler Kantho",
+    publishingPeriod:2
+};
