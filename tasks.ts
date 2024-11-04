@@ -53,11 +53,11 @@ interface Magazine {
 	publishingPeriod: number;
 }
 
-type BookOrMagazineOptional = Book | Magazine;
-type BookAndMagazineCommon = Book & Magazine;
+type EitherBookOrMagazine = Book | Magazine;
+type BothBookAndMagazine = Book & Magazine;
 
 // Must have all properties from Book or Magazine --> must satisfy at least one interface
-const bookOrMagazine: BookOrMagazineOptional = {
+const bookOrMagazine: EitherBookOrMagazine = {
 	title: "Kaaler Kheya",
 	author: "Habul",
 	price: 500,
@@ -68,11 +68,19 @@ const bookOrMagazine: BookOrMagazineOptional = {
 };
 
 // Need all the properties
-const bookAndMagazine: BookAndMagazineCommon = {
+const bookAndMagazine: BothBookAndMagazine = {
 	title: "Kaaler Kheya",
 	author: "Babul",
 	price: 5000,
 	publishingYear: new Date(2010),
-    publisher: "Kaaler Kantho",
-    publishingPeriod:2
+	publisher: "Kaaler Kantho",
+	publishingPeriod: 2,
 };
+
+// Task #5
+const reverseString = (str: string): string => {
+	const result = str.split("").reverse().join("");
+	return result;
+};
+
+console.log(reverseString("hello"));
