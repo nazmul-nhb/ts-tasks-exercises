@@ -205,4 +205,29 @@ const handleError: ErrorHandler = (msg) => {
 	throw new Error(`Congrats! ${msg}`);
 };
 
-console.log(handleError("Expected Error Occurred!"));
+// console.log(handleError("Expected Error Occurred!"));
+
+// Task #13
+type DuplicateDetector = <T>(arr: T[]) => T[];
+
+const removeDuplicates: DuplicateDetector = (arr) => {
+	if (arr.length === 0) return arr;
+	
+	const uniqueSet = new Set(arr);
+	return Array.from(uniqueSet);
+};
+
+const strArr = ["a", "b", "a", "c", "b", "a"];
+const numArr = [1, 2, 1, 3, 2, 1];
+const objArr = [
+	{ name: "Abul", age: 40 },
+	{ name: "Babul", age: 40 },
+	{ name: "Babul", age: 40 },
+	{ name: "Halum", age: 30 },
+	{ name: "Halum", age: 30 },
+	{ name: "Abul", age: 40 },
+];
+
+console.log(removeDuplicates(strArr));
+console.log(removeDuplicates(numArr));
+console.log(removeDuplicates(objArr));
