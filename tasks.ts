@@ -109,3 +109,62 @@ const getLengthOrSquare: GetLengthOrSquare = (arg) => {
 
 console.log(getLengthOrSquare("hablu"));
 console.log(getLengthOrSquare(11));
+
+// Task #8
+type User = {
+	name: string;
+	email: string;
+};
+
+type Admin = {
+	adminLevel: string;
+};
+
+type AdminUser = User & Admin;
+
+type DescribeAdmin = (user: AdminUser) => string;
+
+const describeAdmin: DescribeAdmin = (user) => {
+	return `${user.name}'s email is ${user.email} and he is a ${user.adminLevel} admin`;
+};
+
+const user: AdminUser = {
+	name: "Abul",
+	email: "abul@babul.com",
+	adminLevel: "marattok",
+};
+
+console.log(describeAdmin(user));
+
+// Task #9
+type Employee = {
+	name: string;
+	address?: {
+		country: string;
+		city?: string;
+	};
+};
+
+type GetEmployee = (employee: Employee) => string;
+
+const getEmployeeCity: GetEmployee = (employee) => {
+	return employee.address?.city || "Employee didn't provide city!";
+};
+
+const employee1: Employee = {
+	name: "Babul",
+	address: {
+		country: "Bangudesh",
+		city: "Faka",
+	},
+};
+
+const employee2: Employee = {
+	name: "Abul",
+	address: {
+		country: "India",
+	},
+};
+
+console.log(getEmployeeCity(employee1));
+console.log(getEmployeeCity(employee2));
