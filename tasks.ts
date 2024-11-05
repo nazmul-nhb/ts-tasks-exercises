@@ -86,3 +86,13 @@ const reverseString: ReverseString = (str) => {
 };
 
 console.log(reverseString("hello"));
+
+// Task #6
+type GetSumOfAllNumbers = (...numbers: number[]) => number;
+
+const getSumOfAllNumbers: GetSumOfAllNumbers = (...numbers) => {
+	const sum = numbers.reduce((acc, number) => acc + number, 0);
+	return sum;
+};
+
+console.log(getSumOfAllNumbers(1, 2, 3, 4, 5, 6, 7, 8, 9));
