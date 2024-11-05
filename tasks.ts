@@ -212,7 +212,7 @@ type DuplicateDetector = <T>(arr: T[]) => T[];
 
 const removeDuplicates: DuplicateDetector = (arr) => {
 	if (arr.length === 0) return arr;
-	
+
 	const uniqueSet = new Set(arr);
 	return Array.from(uniqueSet);
 };
@@ -230,4 +230,34 @@ const objArr = [
 
 console.log(removeDuplicates(strArr));
 console.log(removeDuplicates(numArr));
+
+// TODO: Check Later --> Array of Objects
 console.log(removeDuplicates(objArr));
+
+// Task #14
+type UserData = { name: string; age: number };
+
+type FetchUser = () => Promise<UserData>;
+
+const fetchUser = () => {
+	const user: UserData = { name: "Mokbul", age: 73 };
+	// let user = null;
+	return new Promise<UserData>((resolve, reject) => {
+		setTimeout(() => {
+			if (user) {
+				resolve(user);
+			}
+			reject("No user data found!");
+		}, 2000);
+	});
+};
+
+const getUserData = async (): Promise<UserData> => {
+	const data: UserData = await fetchUser();
+	return data;
+};
+
+(async () => {
+	const result = await getUserData();
+	console.log(result);
+})();
