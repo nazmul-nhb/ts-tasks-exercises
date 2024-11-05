@@ -261,3 +261,30 @@ const getUserData = async (): Promise<UserData> => {
 	const result = await getUserData();
 	console.log(result);
 })();
+
+// Task #15
+
+type CheckString = (value: unknown) => value is string;
+
+const isString: CheckString = (value) => {
+	return typeof value === "string";
+};
+
+const printUpperCase = (value: unknown): void => {
+	if (isString(value)) {
+		console.log(value.toUpperCase());
+	}
+};
+
+printUpperCase("hello");
+printUpperCase(123);
+printUpperCase({ text: "hi" });
+
+// Task #16
+type FindKey = <T, K extends keyof T>(obj: T, key: K) => T[K];
+
+const findKey: FindKey = (obj, key) => {
+	return obj[key];
+};
+
+console.log(findKey({ name: "Mofiz", age: 62, isActive: false }, "name"));
