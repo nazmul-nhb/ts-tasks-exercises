@@ -78,7 +78,9 @@ const bookAndMagazine: BothBookAndMagazine = {
 };
 
 // Task #5
-const reverseString = (str: string): string => {
+type ReverseString = (str: string) => string;
+
+const reverseString: ReverseString = (str) => {
 	const result = str.split("").reverse().join("");
 	return result;
 };
