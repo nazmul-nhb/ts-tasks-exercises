@@ -96,3 +96,16 @@ const getSumOfAllNumbers: GetSumOfAllNumbers = (...numbers) => {
 };
 
 console.log(getSumOfAllNumbers(1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+// Task #7
+type GetLengthOrSquare = (arg: string | number) => number;
+
+const getLengthOrSquare: GetLengthOrSquare = (arg) => {
+	if (typeof arg === "string") {
+		return arg.length;
+	}
+	return arg * arg;
+};
+
+console.log(getLengthOrSquare("hablu"));
+console.log(getLengthOrSquare(11));
