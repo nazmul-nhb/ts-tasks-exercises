@@ -197,3 +197,12 @@ const processData: HandleUnknown = (data) => {
 console.log(processData("mofiz"));
 console.log(processData(33));
 console.log(processData({ name: "mofiz" }));
+
+// Task #12
+type ErrorHandler = (message: string) => never;
+
+const handleError: ErrorHandler = (msg) => {
+	throw new Error(`Congrats! ${msg}`);
+};
+
+console.log(handleError("Expected Error Occurred!"));
