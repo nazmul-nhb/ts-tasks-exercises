@@ -180,3 +180,20 @@ console.log(getDisplayName("Habul"));
 console.log(getDisplayName(null));
 console.log(getDisplayName(""));
 console.log(getDisplayName(undefined));
+
+// Task #11
+type HandleUnknown = (data: unknown) => string | number;
+
+const processData: HandleUnknown = (data) => {
+	if (typeof data === "string") {
+		return data.toUpperCase();
+	} else if (typeof data === "number") {
+		return data * data;
+	}
+
+	return "Wrong Input!";
+};
+
+console.log(processData("mofiz"));
+console.log(processData(33));
+console.log(processData({ name: "mofiz" }));
