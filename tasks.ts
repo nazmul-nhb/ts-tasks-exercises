@@ -168,3 +168,15 @@ const employee2: Employee = {
 
 console.log(getEmployeeCity(employee1));
 console.log(getEmployeeCity(employee2));
+
+// Task #10
+type GetDisplayName = (name: string | null | undefined) => string;
+
+const getDisplayName: GetDisplayName = (name) => {
+	return name ?? "Anonymous";
+};
+
+console.log(getDisplayName("Habul"));
+console.log(getDisplayName(null));
+console.log(getDisplayName(""));
+console.log(getDisplayName(undefined));
